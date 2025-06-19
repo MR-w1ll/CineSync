@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style_entrada.css">
+    <title>Enviar Link do YouTube</title>
+</head>
+<body style="
+margin-right: 0px;
+margin-left: 0px;
+margin-top: 0px;
+margin-bottom: 0px;
+">
+    <div class="container">
+        <h1>Insira o Link do Vídeo</h1>
+
+        <!-- Formulário para enviar o link do YouTube -->
+        <form action="/player_video" method="POST" class="form-container">
+            <label for="youtube-url">User-name:</label>
+            <input 
+                type="text" 
+                id="user_name" 
+                name="user_name" 
+                placeholder="Insira seu user-name"
+                required>
+            <label for="youtube-url">URL do YouTube:</label>
+            <input 
+                type="text" 
+                id="youtube-url" 
+                name="youtube_url" 
+                placeholder="Cole o link do vídeo aqui"
+                oninput="validateButtons()">
+            
+            <!-- Campo oculto para enviar a URL da página -->
+            <input 
+                type="hidden" 
+                id="current-page-url" 
+                name="current_page_url">
+
+            <div class="button-group">
+                <button type="submit" id="btn-filled" disabled>Entrar</button>
+                <button type="submit" id="btn-empty" disabled>Entrar na sala</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function validateButtons() {
+            const inputField = document.getElementById("youtube-url");
+            const btnFilled = document.getElementById("btn-filled");
+            const btnEmpty = document.getElementById("btn-empty");
+
+            if (inputField.value.trim()) {
+                btnFilled.disabled = false;
+                btnEmpty.disabled = true;
+            } else {
+                btnFilled.disabled = true;
+                btnEmpty.disabled = false;
+            }
+        }
+
+        // Adiciona a URL da página ao campo oculto
+        function setPageUrl() {
+            const currentPageUrl = window.location.href; // Obtém a URL da página
+            document.getElementById("current-page-url").value = currentPageUrl; // Define no campo oculto
+        }
+
+        window.onload = function () {
+            validateButtons();
+            setPageUrl(); // Chama a função para definir a URL no campo oculto
+        };
+    </script>
+</body>
+</html>
