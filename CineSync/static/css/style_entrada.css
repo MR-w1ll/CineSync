@@ -1,0 +1,125 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background: linear-gradient(135deg, #ede7f6, #b39ddb); */
+
+    background-image: url('/static/fundo.png'); /* Caminho da imagem */
+    background-size: cover;       /* Cobre a tela toda */
+    background-repeat: no-repeat; /* Não repete */
+    background-position: center;  /* Centraliza */
+    background-attachment: fixed; /* Fixa ao fundo, mesmo com scroll */
+
+    color: #4a148c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Fundo da página */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    /* background: linear-gradient(135deg, #ede7f6, #b39ddb); Gradiente suave de lilás */
+}
+
+/* Estilo do título */
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #4a148c; /* Roxo escuro */
+
+    background: rgb(7 3 22 / 41%);
+    padding: 5px 40px 5px 40px;
+    border-radius: 12px;
+    /* margin: 20px 0; */
+    /* text-align: center; */
+    /* font-size: 2.4rem; */
+    color: #4a148c;
+}
+
+/* Formulário */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #d1c4e9; /* Borda lilás claro */
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do rótulo e do campo de entrada */
+label {
+    font-size: 1rem;
+    color: #4a148c; /* Roxo escuro */
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #b39ddb; /* Borda lilás */
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: #f3e5f5; /* Fundo lilás claro */
+    color: #333; /* Texto escuro para boa leitura */
+}
+
+input[type="text"]::placeholder {
+    color: #757575; /* Placeholder em cinza */
+}
+
+/* Estilo dos botões */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%; /* Garante alinhamento */
+}
+
+button {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff; /* Texto branco */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button#btn-filled {
+    background-color: #673ab7; /* Roxo médio */
+}
+
+button#btn-empty {
+    background-color: #9575cd; /* Lilás */
+}
+
+button:hover {
+    background-color: #4a148c; /* Roxo escuro no hover */
+    transform: translateY(-2px); /* Efeito de elevação */
+}
+
+button:disabled {
+    background: #ccc; /* Cinza neutro para botões desativados */
+    cursor: not-allowed;
+}

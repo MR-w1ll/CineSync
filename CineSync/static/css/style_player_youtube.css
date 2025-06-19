@@ -1,0 +1,413 @@
+/* Estilos gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ede7f6, #b39ddb);
+    color: #4a148c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Título */
+h1 {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 2.4rem;
+    color: #4a148c;
+}
+
+/* Container do Player */
+#player-container {
+    margin: 20px 0;
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Botão de Fullscreen */
+#fullscreen-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #673ab7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Controles */
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botões em linha */
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Botões */
+button {
+    background-color: #673ab7; /* Roxo médio */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #4a148c; /* Roxo escuro */
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Labels e select */
+label {
+    font-size: 1rem;
+    color: #4a148c;
+    margin-bottom: 5px;
+}
+
+select {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #b39ddb; /* Borda lilás */
+    border-radius: 4px;
+    background-color: #f3e5f5; /* Lilás claro */
+    color: #4a148c;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+select:hover {
+    border-color: #673ab7;
+}
+
+/* Minutagem e barra de progresso */
+#current-time {
+    font-weight: bold;
+    color: #4a148c;
+}
+
+#progress-bar,
+#volume-control {
+    width: 100%;
+    max-width: 500px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 4px;
+    background: #b39ddb;
+    outline: none;
+    transition: background 0.3s ease;
+    margin-top: 5px;
+}
+
+#progress-bar:hover,
+#volume-control:hover {
+    background: #673ab7;
+}
+
+#progress-bar::-webkit-slider-thumb,
+#volume-control::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #4a148c;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#progress-bar::-webkit-slider-thumb:hover,
+#volume-control::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #player-container {
+        width: 90%;
+    }
+
+    #controls {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    #progress-bar,
+    #volume-control {
+        max-width: 90%;
+    }
+}
+
+/* Estilos para a tabela à direita */
+#info-block {
+    position: fixed;
+    right: 5px; /* Espaço de 5px da borda direita */
+    top: 20px;
+    width: 280px; /* Largura ajustada para ser mais compacta */
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    z-index: 100;
+    font-size: 0.9rem; /* Tamanho de fonte mais compacto */
+}
+
+#info-block table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#info-block th, #info-block td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #b39ddb;
+    font-size: 0.8rem; /* Tamanho de fonte ajustado */
+}
+
+#info-block th {
+    background-color: #673ab7;
+    color: white;
+}
+
+/* Estilo para linhas alternadas da tabela */
+#info-block tr:nth-child(even) {
+    background-color: #f3e5f5;
+}
+
+/* Container do chat */
+#chat-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+
+
+
+
+/* ================================= */
+/* Estilos para o chat */
+/* #chat-messages {
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border: 1px solid #b39ddb;
+    padding: 5px;
+}
+
+#chat-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #b39ddb;
+    border-radius: 4px;
+}
+
+#send-message {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #673ab7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+} */
+
+/* button:hover {
+    background-color: #4a148c;
+    transform: translateY(-2px);
+}
+
+/* Responsividade
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #player-container {
+        width: 90%;
+    }
+
+    #controls {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+} */
+
+
+/* #fullscreen-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10000; /* Acima do #custom-buttons 
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+} */
+
+
+
+.custom-btn {
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+#custom-buttons {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    box-sizing: border-box;
+    z-index: 9999;
+}
+
+
+
+
+#progress-bar-fullscreen {
+    width: 100%;
+    appearance: none;
+    height: 5px;
+    background: #444;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+#progress-bar-fullscreen::-webkit-slider-thumb {
+    appearance: none;
+    height: 12px;
+    width: 12px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#progress-bar-fullscreen::-moz-range-thumb {
+    height: 12px;
+    width: 12px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#fullscreen-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#fullscreen-left,
+#fullscreen-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    margin-right: 50px;
+}
+
+#current-time-fullscreen {
+    color: white;
+    font-family: monospace;
+    font-size: 14px;
+    min-width: 70px;
+}
+
+#rewind-fullscreen,
+#bt-play-fullscreen,
+#forward-fullscreen,
+#speed-fullscreen,
+#volume-control-fullscreen {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#speed-fullscreen,
+#volume-control-fullscreen {
+    max-width: 80px;
+}
+
+label[for="volume-control"] {
+    color: white;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+
+
+

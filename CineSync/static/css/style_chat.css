@@ -1,0 +1,117 @@
+/* ================== CHAT FIXO NA DIREITA ================== */
+#chat-block, #chat-block-fullscreen {
+    position: fixed;                /* Fixo na tela */
+    bottom: 0;
+    right: 0;
+    width: 25vw;                    /* Largura responsiva: 25% da viewport */
+    height: 60vh;                   /* Altura responsiva: 60% da viewport */
+    background-color: #f9f9f9;
+    border-left: 2px solid #ccc;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 10000;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px 0 0 0;
+}
+
+
+/* Chat interno rolável */
+#chat, #chat-fullscreen {
+    flex: 1;                        /* Ocupa todo espaço vertical disponível */
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* Rodapé com campo de texto e botão */
+#chat-block footer, #chat-block-fullscreen footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+}
+
+#chat-block input[type="text"], #chat-block-fullscreen input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+#chat-block button, #chat-block-fullscreen button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ============ Botão de minimizar dentro do chat ============ */
+#minimize-chat-button, #minimize-chat-button-fullscreen{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    z-index: 1010;
+}
+
+#minimize-chat-button:hover, #minimize-chat-button-fullscreen:hover {
+    color: #ff4c4c;
+}
+
+
+/* ============ BOTÃO FLUTUANTE PARA EXPANDIR O CHAT ============ */
+#chat-toggle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10001;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    display: none; /* Começa invisível */
+}
+
+#chat-toggle-button-fullscreen {
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10001;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    display: none; /* Começa invisível */
+}
+
+/* ============ RESPONSIVIDADE ============ */
+@media (max-width: 768px) {
+    #chat-block, #chat-block-fullscreen {
+        width: 90vw;
+        height: 50vh;
+        border-radius: 10px 10px 0 0;
+    }
+
+    #chat-toggle-button, #chat-toggle-button-fullscreen {
+        /* bottom: 15px; */
+        right: 15px;
+        font-size: 18px;
+        padding: 10px;
+    }
+}
