@@ -6,8 +6,8 @@ Sistema de "sala de cinema online" com vídeo sincronizado para múltiplos usuá
 
 <div align="center">
   <img src="docs/img_home.png" width="400"/>
-  <img src="docs/img2.png" width="400"/>
-  <img src="docs/img3.png" width="400"/>
+  <img src="docs/img_player_youtube.png" width="400"/>
+  <img src="docs/img_player_generico.png" width="400"/>
 </div>
 
 ## 🚀 Funcionalidades
